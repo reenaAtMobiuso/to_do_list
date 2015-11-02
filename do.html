@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head><title>TO_DO_LIST</title>
+
+<style type="text/css">
+
+h1{
+	color:black;
+}
+
+body{
+    background: -webkit-linear-gradient(left-top, white , #C9c9c9)
+
+    }
+
+input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-bottom: solid 5px #c9c9c9;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+li{
+
+ font-family: Cursive;
+ font-weight: bold;
+ color: #90006c;
+
+}
+
+#ul{
+  list-style-type: none;
+}
+
+input[type="button"]{
+   background: yellow;
+   width:50px;
+   height:50px;
+}
+
+img {
+	width:50px;
+	height:50px;
+}
+#thinkImg{
+  width:150px;
+  height:150px;
+  opacity: 0.3;
+  border-radius: 10px;
+}
+
+div {
+  width:900px;
+  background-color: #E0EBEB;
+  border-radius: 6px;
+}
+
+</style>
+
+<script type="text/javascript">
+var countOfList=0;
+function addList(){
+     var addinput = document.getElementById('myItem').value;
+    if(addinput=="")
+          {
+          confirm("Enter a task");
+          exit;
+          }
+           
+          if(countOfList<6)
+          {
+    var createLi = document.createElement('li');
+    var display='<div><img src="bin.png" button type="button" onClick="removeList(this);"/>'+addinput+'</div>';
+
+    var newdiv=document.createElement('div');
+    newdiv.innerHTML=display;
+    createLi.appendChild(newdiv);
+    var ulTag = document.getElementById('ul');
+    ulTag.insertBefore(createLi,ulTag.childNodes[0]);
+    countOfList++;
+  }
+  else if(countOfList>=6){
+    confirm("Your To-do list is full")
+
+  }
+}
+
+function removeList(control){
+    control.parentNode.remove();
+    countOfList--;
+}
+
+</script>
+</head>
+
+<body background="http://freetopwallpaper.com/wp-content/gallery/sakura/sakura-flowers-wallpaper-hd-6.jpg">
+  
+   <h1>To Do List</h1>
+   <img id="thinkImg" src="http://www.relationship-economy.com/wp-content/uploads/2012/08/Thinking.44121810.jpg"/>
+   <input type="text" placeholder="Enter the task" id="myItem"/>
+   <input type="button" value="+" onClick="addList();"/>
+   <ul id="ul"></ul>
+ 
+</html>
